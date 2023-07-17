@@ -126,10 +126,11 @@ const Board = () => {
 
   useMemo(() => {
     if (searchQuery.length > 1) {
+      const query = searchQuery.toLowerCase();
       // filtering the tasksdata with the search query
       const filteredData: [] = taskData.map((card: CardsProps) => {
         const tasks = card.tasks.filter((task) => {
-          return task.title.includes(searchQuery) ? task : null;
+          return task.title.toLowerCase().includes(query) ? task : null;
         });
         return {
           ...card,
