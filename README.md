@@ -17,6 +17,8 @@ dependencies are installed on your system:
 ### Folder structure
 
 Here's a folder structure for a Kanban document:
+keeping in mind to Write production-grade code that can be easily extended to add new
+features. we would need to take kanban folder which consists of board and the components used for it.
 
 ```
 Trello-Clone/     # Root directory.
