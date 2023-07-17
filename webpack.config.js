@@ -1,6 +1,5 @@
 const path = require("path");
 module.exports = {
-  mode: "development",
   entry: "./index.js",
   // sourceMap: process.env.NODE_ENV !== "production",
   output: {
