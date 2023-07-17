@@ -1,0 +1,198 @@
+@import "./variables.scss";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $default-bg;
+  font-family: $default-font;
+  font-size: $size-S;
+  color: rgba(255, 255, 255, 0.777);
+}
+
+.app-container {
+  .kanban-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1em;
+    background-color: #084066;
+    display: flex;
+    align-items: center;
+
+    h1 {
+      color: white;
+      font-weight: 500;
+      font-size: $size-M;
+    }
+
+    .search-container {
+      margin: 0 2em;
+      width: 25%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.503);
+      position: relative;
+
+      input {
+        width: 100%;
+        background: none;
+        border: 0;
+        caret-color: white;
+        color: white;
+        padding: 10px 0;
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.534);
+          padding: 0 5px;
+        }
+
+        &:focus {
+          outline: 0;
+        }
+      }
+
+      img {
+        position: absolute;
+        right: 0;
+        width: 20px;
+      }
+    }
+  }
+  .kanban-content {
+    padding-top: 5em;
+    width: max-content;
+    display: flex;
+    align-items: flex-start;
+
+    .card-container {
+      margin: 1em;
+      background-color: black;
+      border-radius: 12px;
+      padding: 1em;
+      width: 350px;
+      .card-title {
+        font-weight: 600;
+        font-size: $size-S;
+      }
+      .task-container {
+        cursor: pointer;
+        background-color: rgba(59, 57, 57, 0.649);
+        border-radius: 12px;
+        margin: 0.5em 0;
+        padding: 0.5em;
+
+        .title {
+          font-size: $size-S;
+          padding: 0.5em;
+          // margin: 0.5em 0;
+        }
+      }
+    }
+  }
+}
+
+// components sections
+// addList
+.add-card {
+  .label {
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+
+    img {
+      width: 15px;
+      height: 15px;
+      margin-right: 1em;
+    }
+    &:hover {
+      background-color: rgba(128, 128, 128, 0.504);
+    }
+  }
+
+  .list-label {
+    margin: 1em;
+    width: 350px;
+    padding: 1em;
+    background-color: rgba(225, 221, 221, 0.291);
+
+    &:hover {
+      background-color: rgba(128, 128, 128, 0.296);
+    }
+  }
+
+  .card-content {
+    textarea {
+      margin: 0 0 1em;
+      width: 100%;
+      background-color: transparent;
+      border: 0;
+      caret-color: white;
+      font-family: $default-font;
+      background-color: rgba(59, 57, 57, 0.649);
+      border-radius: 12px;
+      padding: 10px;
+      resize: vertical;
+      max-height: 30vh;
+      color: white;
+      font-size: $size-S;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.534);
+        padding: 0 5px;
+      }
+
+      &:focus {
+        border: 0;
+        outline: 0;
+      }
+    }
+
+    .cta {
+      display: flex;
+      align-items: center;
+
+      button {
+        border-radius: 5px;
+        border: 0;
+        background-color: #579dff;
+        padding: 10px 15px;
+        cursor: pointer;
+      }
+
+      img {
+        margin-left: 0.5em;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  .list-content {
+    background-color: black;
+    width: 330px;
+    input {
+      width: 100%;
+      background: none;
+      border: 0;
+      caret-color: white;
+      color: white;
+      padding-bottom: 20px;
+      font-size: $size-S;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.534);
+        padding: 0 5px;
+      }
+
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+}
