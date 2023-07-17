@@ -2,9 +2,12 @@ import React, { useState } from "react";
 
 interface AddCardProps {
   toAddList?: boolean;
-  handleSubmit?: any;
+  handleSubmit: any;
 }
 
+/**
+ * @description Component to add card/list to the board.
+ */
 const AddCard: React.FC<AddCardProps> = ({
   handleSubmit,
   toAddList = false,

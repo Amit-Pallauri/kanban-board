@@ -13,6 +13,7 @@ body {
 }
 
 .app-container {
+  position: relative;
   .kanban-header {
     position: fixed;
     top: 0;
@@ -34,6 +35,8 @@ body {
       width: 25%;
       border-bottom: 1px solid rgba(255, 255, 255, 0.503);
       position: relative;
+      display: flex;
+      align-items: center;
 
       input {
         width: 100%;
@@ -61,6 +64,7 @@ body {
     }
   }
   .kanban-content {
+    overflow-x: scroll;
     padding-top: 5em;
     width: max-content;
     display: flex;
@@ -75,6 +79,7 @@ body {
       .card-title {
         font-weight: 600;
         font-size: $size-S;
+        margin-bottom: 0.5em;
       }
       .task-container {
         cursor: pointer;
@@ -91,9 +96,39 @@ body {
       }
     }
   }
+
+  @include mobile {
+    position: relative;
+    .kanban-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      h1 {
+        width: 50%;
+        font-size: $size-S;
+      }
+      .search-container {
+        width: 70%;
+        margin: 0 1em;
+
+        img {
+          width: 15px;
+        }
+      }
+    }
+
+    .kanban-fluid {
+      overflow-x: auto;
+      height: 100%;
+      .kanban-content {
+        white-space: nowrap;
+      }
+    }
+  }
 }
 
-// components sections
 // addList
 .add-card {
   .label {

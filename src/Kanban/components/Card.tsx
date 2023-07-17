@@ -4,6 +4,10 @@ import AddCard from "./AddCard";
 import { CardsProps, TaskProps } from "../types/cardTypes";
 const { Droppable } = require("react-beautiful-dnd");
 
+/**
+ * @description Component to show card in the lists
+ */
+
 const Card: React.FC<CardsProps> = (cardData) => {
   return (
     <div className="card-container">
