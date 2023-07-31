@@ -124,12 +124,22 @@ const Board = () => {
     setSearchQuery(e.target.value);
   };
 
+  /**
+   * @description to close the card
+   */
+  const handleCardClose = (cardIndex: number) => {
+    const [_, list] = removeFromList(taskData, cardIndex);
+    setTaskData(list);
+    localStorage.setItem("kanban", JSON.stringify(list));
+  };
+
   useMemo(() => {
     if (searchQuery.length > 1) {
+      const query = searchQuery.toLowerCase();
       // filtering the tasksdata with the search query
       const filteredData: [] = taskData.map((card: CardsProps) => {
         const tasks = card.tasks.filter((task) => {
-          return task.title.includes(searchQuery) ? task : null;
+          return task.title.toLowerCase().includes(query) ? task : null;
         });
         return {
           ...card,
@@ -165,6 +175,7 @@ const Board = () => {
                 title={card.title}
                 tasks={card.tasks}
                 handleSubmit={(data: string) => handleCardSubmit(data, index)}
+                handleCardClose={() => handleCardClose(index)}
               />
             ))}
           </DragDropContext>

@@ -3,6 +3,7 @@ export interface CardsProps {
   title: string;
   tasks: Array<any>;
   handleSubmit?: Function;
+  handleCardClose?: any;
 }
 
 export interface TaskProps {

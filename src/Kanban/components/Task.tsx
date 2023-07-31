@@ -18,6 +18,7 @@ const Task: React.FC<TaskProps> = (taskData) => {
           {...provided.dragHandleProps}
         >
           <h3 className="title">{taskData?.title}</h3>
+          {/* <img src="./images/edit.png" alt="" /> */}
         </div>
       )}
     </Draggable>

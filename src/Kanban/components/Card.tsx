@@ -14,7 +14,12 @@ const Card: React.FC<CardsProps> = (cardData) => {
       <Droppable droppableId={cardData?.id}>
         {(provided: any) => (
           <div {...provided.droppableProps} ref={provided.innerRef}>
-            <h2 className="card-title">{cardData?.title}</h2>
+            <div className="title-icon">
+              <h2 className="card-title">{cardData?.title}</h2>
+              <div className="close-icon" onClick={cardData?.handleCardClose}>
+                <img src="./images/cross.png" alt="" />
+              </div>
+            </div>
             {cardData?.tasks.map((task: TaskProps, index: any) => (
               <Task
                 key={index}
