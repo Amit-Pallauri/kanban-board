@@ -133,6 +133,13 @@ const Board = () => {
     localStorage.setItem("kanban", JSON.stringify(list));
   };
 
+  const removeTask = (taskIndex: number, cardIndex: number) => {
+    const tempCards = [...taskData];
+    const card = tempCards.find((el: any, i: number) => i === cardIndex);
+    const [_, tasks] = removeFromList(card.tasks, taskIndex);
+    card.tasks = tasks;
+    setTaskData(tempCards);
+  };
   useMemo(() => {
     if (searchQuery.length > 1) {
       const query = searchQuery.toLowerCase();
@@ -176,6 +183,7 @@ const Board = () => {
                 tasks={card.tasks}
                 handleSubmit={(data: string) => handleCardSubmit(data, index)}
                 handleCardClose={() => handleCardClose(index)}
+                handleTaskClose={(taskId: any) => removeTask(taskId, index)}
               />
             ))}
           </DragDropContext>

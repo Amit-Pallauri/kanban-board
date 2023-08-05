@@ -26,6 +26,7 @@ const Card: React.FC<CardsProps> = (cardData) => {
                 id={`${cardData?.id}-task_${index}`}
                 title={task.title}
                 dragKey={index}
+                handleTaskClose={() => cardData?.handleTaskClose(index)}
               />
             ))}
             {provided.placeholder}
